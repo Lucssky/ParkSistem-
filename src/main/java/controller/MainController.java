@@ -29,5 +29,6 @@ public class MainController {
         Stage stage = (Stage) btnLogout.getScene().getWindow();
         Session.changeScene(stage, "Login.fxml");
     }
+
 }
 

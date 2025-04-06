@@ -5,6 +5,7 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
@@ -16,7 +17,6 @@ import model.Cliente;
 import util.Session;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class LoginController {
 
@@ -39,22 +39,29 @@ public class LoginController {
 
         Cliente cliente = UsuarioDAO.autenticar(username, password);
 
-        if (username.equals("admin") && password.equals("1234")) {
+        if (cliente != null || (username.equals("admin") && password.equals("1234"))) {
+            // Login válido
+            Session.setUsuario(cliente != null ? cliente : new Cliente("admin", "", ""));
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login");
             alert.setHeaderText(null);
             alert.setContentText("Login realizado com sucesso!");
             alert.showAndWait();
+
+            // Carrega a próxima tela (Main.fxml)
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+            Parent mainRoot = loader.load();
+            Stage stage = (Stage) root.getScene().getWindow();
+            stage.setScene(new Scene(mainRoot));
+            stage.show();
         } else {
+            // Login inválido
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login");
             alert.setHeaderText(null);
             alert.setContentText("Usuário ou senha incorretos!");
             alert.showAndWait();
         }
-
     }
 }
-
-
-
