@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.CadastroController">
+    <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="50.0"
+          AnchorPane.rightAnchor="50.0">
+        <Label text="Cadastro de Usuário"/>
+        <TextField fx:id="txtNome" promptText="Nome"/>
+        <TextField fx:id="txtEmail" promptText="Email"/>
+        <PasswordField fx:id="txtSenha" promptText="Senha"/>
+        <Button text="Cadastrar" onAction="#cadastrar"/>
+        <Button text="Voltar ao Login" onAction="#voltarLogin"/>
+    </VBox>
+</AnchorPane>

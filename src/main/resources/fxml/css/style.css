@@ -1,0 +1,59 @@
+.root {
+    -fx-background-color: #003120;
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}
+
+#lblStatus {
+    -fx-text-fill: red;
+    -fx-font-size: 14px;
+}
+
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-transition: border-color 0.3s ease-in-out;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #00ff99;
+}
+
+.button {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-border-radius: 5px;
+    -fx-transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    -fx-background-color: #3498db;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.image-view {
+    -fx-fit-width: 100px;
+    -fx-fit-height: 100px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.5, 0, 2);
+    -fx-padding: 10;
+}
+
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+.fade-in {
+    -fx-opacity: 0;
+    -fx-animation-name: fadeIn;
+    -fx-animation-duration: 1s;
+    -fx-animation-fill-mode: forwards;
+}

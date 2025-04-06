@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.LoginController"
+      spacing="10" alignment="CENTER"
+      stylesheets="@css/style.css">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <ImageView fitHeight="100" fitWidth="100">
+        <image>
+            <Image url="@css/LogoAdmPark2.png" />
+        </image>
+    </ImageView>
+
+    <Label text="Login"/>
+    <TextField fx:id="usernameField" promptText="Usuário"/>
+    <PasswordField fx:id="passwordField" promptText="Senha"/>
+    <Button text="Entrar" onAction="#handleLogin"/>
+</VBox>
