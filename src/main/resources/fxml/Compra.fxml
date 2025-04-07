@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controller.CompraController">
-    <Label text="Compra de Ingresso"/>
-    <ComboBox fx:id="comboAtracoes" promptText="Selecione a atração"/>
-    <TextField fx:id="txtQuantidade" promptText="Quantidade"/>
-    <Button text="Comprar" onAction="#comprarIngresso"/>
+<VBox alignment="CENTER"
+      spacing="15"
+      styleClass="root"
+      stylesheets="@css/style.css"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.CompraController"
+      style="-fx-padding: 30;">
+
+    <Label text="Compra de Ingressos" styleClass="titulo" />
+
+    <TextField fx:id="nomeClienteField" promptText="Nome do Cliente" prefWidth="250" styleClass="text-field" />
+    <TextField fx:id="quantidadeField" promptText="Quantidade" prefWidth="250" styleClass="text-field" />
+
+    <ComboBox fx:id="comboAtracoes" promptText="Escolha uma Atração" prefWidth="250" />
+
+    <!-- Espaço reservado para exibir detalhes da atração -->
+    <VBox fx:id="atracaoInfoBox" spacing="5" />
+
+    <ComboBox fx:id="comboPagamento" promptText="Forma de Pagamento" prefWidth="250" />
+
+    <Button onAction="#confirmarCompra" prefWidth="200" text="Confirmar Compra" styleClass="botao-acao"/>
+    <Button fx:id="btnVoltar" onAction="#voltar" prefWidth="200" text="Voltar" styleClass="botao-acao"/>
 </VBox>
-

@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.CadastroController">
-    <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="50.0"
-          AnchorPane.rightAnchor="50.0">
-        <Label text="Cadastro de Usuário"/>
-        <TextField fx:id="txtNome" promptText="Nome"/>
-        <TextField fx:id="txtEmail" promptText="Email"/>
-        <PasswordField fx:id="txtSenha" promptText="Senha"/>
-        <Button text="Cadastrar" onAction="#cadastrar"/>
-        <Button text="Voltar ao Login" onAction="#voltarLogin"/>
+
+<StackPane fx:id="root"
+           xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="controller.CadastroController"
+           styleClass="root"
+           stylesheets="@css/style.css">
+
+    <VBox spacing="15" alignment="CENTER" maxWidth="300"
+          style="-fx-background-radius: 12; -fx-padding: 30;"
+          styleClass="card-entrada mostrar">
+
+        <Label text="Cadastro de Usuário" styleClass="titulo"/>
+
+        <TextField fx:id="txtNome" promptText="Nome completo" styleClass="text-field" />
+        <TextField fx:id="txtEmail" promptText="Email" styleClass="text-field" />
+        <PasswordField fx:id="txtTelefone" promptText="Telefone" styleClass="text-field" />
+
+        <Button text="Cadastrar" onAction="#cadastrar" styleClass="botao-acao" />
+        <Button text="Voltar ao Login" onAction="#voltarLogin" style="-fx-background-color: transparent; -fx-border-color: #2b9348; -fx-text-fill: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-padding: 8 30;" />
+
     </VBox>
-</AnchorPane>
+</StackPane>
+

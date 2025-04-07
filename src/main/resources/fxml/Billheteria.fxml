@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="fxml.Bilheterias"
-            prefHeight="400.0" prefWidth="600.0">
+            fx:controller="controller.BilheteriaController"
+            styleClass="root"
+            stylesheets="@css/style.css">
 
-</AnchorPane>
+    <top>
+        <Label text="Bilheterias Disponíveis"
+               styleClass="titulo"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaBilheterias"
+                   prefHeight="400" prefWidth="700"
+                   style="-fx-background-radius: 10; -fx-padding: 20; -fx-background-color: white;">
+            <columns>
+                <TableColumn fx:id="colNome" text="Atração" prefWidth="150"/>
+                <TableColumn fx:id="colPreco" text="Preço" prefWidth="100"/>
+                <TableColumn fx:id="colQuantidade" text="Disponíveis" prefWidth="100"/>
+                <TableColumn fx:id="colHorarioFechamento" text="Fechamento" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 20;">
+            <Button fx:id="btnvoltarmenu" text="Voltar ao Menu" onAction="#voltarMenu" styleClass="botao-acao"/>
+        </HBox>
+    </bottom>
+</BorderPane>

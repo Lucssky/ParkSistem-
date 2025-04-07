@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,27 +42,31 @@ public class Session {
         atracoes.add(atracao);
     }
 
+    // Troca de cena usando Stage direto
     public static void changeScene(Stage stage, String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(Session.class.getResource("/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(Session.class.getResource("/fxml/" + fxmlFile));
             Parent root = loader.load();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
+            System.out.println("Erro ao carregar o arquivo FXML: /fxml/" + fxmlFile);
             e.printStackTrace();
         }
     }
 
-    // Novo método utilitário para trocar de cena diretamente de um botão
-    public static void changeSceneFromButton(javafx.event.ActionEvent event, String fxmlFile) {
+    // Troca de cena usando evento (ex: clique de botão)
+    public static void changeSceneFromButton(ActionEvent event, String fxmlFile) {
         try {
-            FXMLLoader loader = new FXMLLoader(Session.class.getResource("/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(Session.class.getResource("/fxml/" + fxmlFile));
             Parent root = loader.load();
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
+            System.out.println("Erro ao carregar o arquivo FXML: /fxml/" + fxmlFile);
             e.printStackTrace();
         }
     }
 }
+

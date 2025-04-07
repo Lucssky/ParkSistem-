@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.AtracaoController">
-    <top>
-        <Label text="Atrações Disponíveis" style="-fx-font-size: 20px; -fx-padding: 10;"/>
-    </top>
-    <center>
-        <TableView fx:id="tableAtracoes">
-            <columns>
-                <TableColumn fx:id="colNome" text="Nome"/>
-                <TableColumn fx:id="colDescricao" text="Descrição"/>
-            </columns>
-        </TableView>
-    </center>
-    <bottom>
-        <Button fx:id="btnVoltar" text="Voltar" onAction="#voltar" style="-fx-padding: 10;" BorderPane.alignment="CENTER"/>
-    </bottom>
-</BorderPane>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.AtracaoController"
+      spacing="20" alignment="TOP_CENTER"
+      styleClass="root"
+      stylesheets="@css/style.css">
 
+    <Label text="Lista de Atrações" styleClass="titulo" />
+
+    <ScrollPane fx:id="scrollPane" fitToWidth="true"
+                style="-fx-background-color: transparent; -fx-background-insets: 0;">
+        <VBox fx:id="vboxAtracoes" spacing="15" style="-fx-padding: 20;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+        </VBox>
+    </ScrollPane>
+
+    <Button fx:id="btnVoltar"
+            text="Voltar"
+            onAction="#voltar"
+            prefWidth="200"
+            styleClass="botao-acao"/>
+</VBox>
